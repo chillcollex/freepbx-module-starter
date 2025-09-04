@@ -1,7 +1,4 @@
-<?php /* $Id */
-
-//  This is a module template replace all text between <<    >> with appropriate values
-//  the word <<module>> is used in place of the actual module short name
+<?php
 
 if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 //This file is part of FreePBX.
@@ -21,28 +18,8 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 
 
 
-//  Boilerplate to check for settings and return
-function <<modulename>>_config() {
-	$sql = "SELECT <<whatever>> FROM <<tablename>> WHERE <<columnname>> = 'whatever'";
-	$results = sql($sql,"getAll",DB_FETCHMODE_ASSOC);
-	return is_array($results)?$results:array();
+class core_conf {
+    public function __construct() {
+        // Constructor code here
+    }
 }
-
-// boilerplate to store settings
-function <<modulename>>_edit($id,$post){
-	global $db;
-
-	$<<var1>> = $db->escapeSimple($post['<<column1>>']);
-	$<<var2>> = $db->escapeSimple($post['<<column2>>']);
-
-
-	$results = sql("
-		UPDATE <<tablename>> 
-		SET 
-			<<column1>> = '$var1', 
-			<<column2>> = '$var2', 
-		WHERE <<indexcolumnname>> = '$id'");
-}
-
-//  It is critical that no characters (including LF) be outside the php tags, best to eliminate the final ?> altogether
-?>

@@ -1,20 +1,27 @@
-<module>
-	<rawname>moduleshortname</rawname>
-	<name><<full module name>></name>
-	<version>1.2.0.0</version>
-	<publisher>POSSA</publisher>
-	<license>GPLv2+</license>
-	<category>Other</category>
-	<menuitems>
-		<menu_name needsenginedb="yes">Menu_Name</menu_name>
-	</menuitems>
-	<changelog>
-		*1.2*  Another description
-		*1.1* description
-	</changelog>
-	<depends>
-		<version>ge 2.9</version>
-		<phpcomponent>gd</phpcomponent>
-
-	</depends>
+<module>  
+    <rawname>yourmodule</rawname>  
+    <repo>standard</repo>  
+    <category>Applications</category>  
+    <name>Your Module Name</name>  
+    <version>1.0.0</version>  
+    <publisher>Your Company Name</publisher>  
+    <license>GPLv3+</license>  
+    <licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>  
+    <candisable>yes</candisable>  
+    <canuninstall>yes</canuninstall>  
+    <changelog>  
+        *1.0.0* Initial release  
+    </changelog>  
+    <depends>  
+        <version>17.0.1</version>  
+    </depends>
+    <menuitems>  
+        <yourmodule category="Applications">Your Module</yourmodule>  
+    </menuitems>  
+    <methods>  
+        <get_config pri="500">yourmodule_do_get_config</get_config>  
+    </methods>  
+    <supported>  
+        <version>16.0</version>  
+    </supported>  
 </module>

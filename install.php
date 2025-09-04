@@ -19,42 +19,4 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 //    see <http://www.gnu.org/licenses/>.
 //
 
-// Check FreePBX db engine
-if($amp_conf["AMPDBENGINE"] != "mysql")  {
-//  Could be used to throw a warning on install
-	}
-
-
-//  boilerplate for defining a new feature code
-$fcc = new featurecode('<<module>>', '<<featurecode_name>>');
-$fcc->setDescription('Type description');
-$fcc->setDefault('<<featurecode digits>>');
-$fcc->setProvideDest();
-$fcc->update();
-unset($fcc);
-
-// boilerplate for creating a table
-$sql = "CREATE TABLE IF NOT EXISTS <<tablename>> (
-	<<column1>> INTEGER NOT NULL PRIMARY KEY $autoincrement,
-	<<column2>> NOT NULL,
-	
-);";
-$check = $db->query($sql);
-if (DB::IsError($check)) {
-        die_freepbx( "Can not create <<tablename>>` table: " . $check->getMessage() .  "\n");
-}
-
-// boilerplate to add a column to a table
-$sql = "SELECT <<column3>> FROM <<tablename>>";
-$check = $db->getRow($sql, DB_FETCHMODE_ASSOC);  //$check will error is the query is invalid
-if (DB::IsError($check)) {
-	// add new field
-	$sql = "ALTER TABLE <<tablename>> ADD <<column3>> INTEGER NOT NULL DEFAULT 0;";
-	$result = $db->query($sql);
-	if(DB::IsError($result)) {
-		die_freepbx($result->getMessage());
-	}
-}
-
-
 ?>
